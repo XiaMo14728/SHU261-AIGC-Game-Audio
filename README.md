@@ -30,7 +30,7 @@ SHU261-AIGC-Game-Audio/
 | 以"AIGC 在游戏音频设计中的应用"为主题做调研 | ✅ | `docs/` 下的调研报告 |
 | 文字内容使用 `.md` 格式 | ✅ | 全部为 Markdown 文档 |
 | 接受图片/视频等辅助材料 | ✅ | `assets/` 目录 |
-| 邮件发送链接至 xichen@soundoer.com | ⏳ | 邮件标题格式：`SHU261基础实践_Task_学号_姓名` |
+| 邮件发送链接至 xichen@soundoer.com | ✅ | 已于 2026-10-15 发送，标题格式 `SHU261基础实践_Task_学号_姓名` |
 
 ---
 
