@@ -12,8 +12,7 @@
 SHU261-AIGC-Game-Audio/
 ├── README.md                              # 仓库说明（本文件）
 ├── docs/
-│   ├── AIGC在游戏音频设计中的应用_调研报告.md   # 本次作业主要成果
-│   └── 作业提交说明.md                     # Git/GitHub 操作步骤与邮件模板
+│   └── AIGC在游戏音频设计中的应用_调研报告.md   # 本次作业主要成果
 ├── notes/
 │   └── git-操作记录.md                     # Git 基础操作实践记录
 └── assets/                                # 图片、视频等辅助材料
@@ -31,7 +30,7 @@ SHU261-AIGC-Game-Audio/
 | 以"AIGC 在游戏音频设计中的应用"为主题做调研 | ✅ | `docs/` 下的调研报告 |
 | 文字内容使用 `.md` 格式 | ✅ | 全部为 Markdown 文档 |
 | 接受图片/视频等辅助材料 | ✅ | `assets/` 目录 |
-| 邮件发送链接至 xichen@soundoer.com | ⏳ | 邮件模板见 `docs/作业提交说明.md` |
+| 邮件发送链接至 xichen@soundoer.com | ⏳ | 邮件标题格式：`SHU261基础实践_Task_学号_姓名` |
 
 ---
 
