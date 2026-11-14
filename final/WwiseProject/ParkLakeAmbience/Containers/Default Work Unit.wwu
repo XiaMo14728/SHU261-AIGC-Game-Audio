@@ -28,204 +28,241 @@
 						<ActiveSource Name="amb_parklake_loop_01" ID="{9DACE1AB-1801-4979-A4B9-7D4F45FBAA05}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="sfx_bird_chirp_01" ID="{F326BA48-7EFA-45C0-9274-59852F97AEAE}" ShortID="694135980">
+
+				<RandomSequenceContainer Name="RC_BirdChirp" ID="{49F6534E-DABD-4BF7-9AD2-FDF793920ED5}" ShortID="419181488">
+					<PropertyList>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+					</PropertyList>
 					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="sfx_bird_chirp_01" ID="{2D54173C-9949-49A6-A351-2613266A34DC}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_bird_chirp_01.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="364840745"/>
-							</MediaIDList>
-						</AudioFileSource>
+					<Sound Name="sfx_bird_chirp_01" ID="{F326BA48-7EFA-45C0-9274-59852F97AEAE}" ShortID="694135980">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_bird_chirp_01" ID="{2D54173C-9949-49A6-A351-2613266A34DC}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_bird_chirp_01.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="364840745"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_bird_chirp_01" ID="{2D54173C-9949-49A6-A351-2613266A34DC}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_bird_chirp_02" ID="{8DC46B2C-FFAF-482E-94C1-E0E353917D4E}" ShortID="705121697">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_bird_chirp_02" ID="{45F949C7-96B9-4623-BADC-9DDF27BBFB2F}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_bird_chirp_02.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="230925373"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_bird_chirp_02" ID="{45F949C7-96B9-4623-BADC-9DDF27BBFB2F}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_bird_chirp_03" ID="{A7A68A7A-C655-4629-9E59-E580A83B77AA}" ShortID="840372376">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_bird_chirp_03" ID="{A48EA26D-4FEA-4861-BA4D-66C5ED146FBC}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_bird_chirp_03.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="828833447"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_bird_chirp_03" ID="{A48EA26D-4FEA-4861-BA4D-66C5ED146FBC}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
 					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_bird_chirp_01" ID="{2D54173C-9949-49A6-A351-2613266A34DC}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_bird_chirp_02" ID="{8DC46B2C-FFAF-482E-94C1-E0E353917D4E}" ShortID="705121697">
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="RC_WaterBird" ID="{52CDC4A8-9954-43F4-A253-0E27F987BECB}" ShortID="776281117">
+					<PropertyList>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+					</PropertyList>
 					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="sfx_bird_chirp_02" ID="{45F949C7-96B9-4623-BADC-9DDF27BBFB2F}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_bird_chirp_02.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="230925373"/>
-							</MediaIDList>
-						</AudioFileSource>
+					<Sound Name="sfx_water_bird_splash_01" ID="{3E9BA624-E6A9-43DF-9B2C-C8B73B039C3D}" ShortID="178949114">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_water_bird_splash_01" ID="{316D7B1A-8199-47E5-9C68-D8035A1DFC92}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_water_bird_splash_01.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="562978849"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_water_bird_splash_01" ID="{316D7B1A-8199-47E5-9C68-D8035A1DFC92}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_water_bird_splash_02" ID="{93C10FBE-5022-41D4-83AE-0706D200E081}" ShortID="403945063">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_water_bird_splash_02" ID="{8A6E8955-00A1-4E40-A0FE-75A266E45C83}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_water_bird_splash_02.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="374077526"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_water_bird_splash_02" ID="{8A6E8955-00A1-4E40-A0FE-75A266E45C83}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_water_bird_splash_03" ID="{60C5E353-9BDE-403E-B10A-B781756A2B99}" ShortID="360932995">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_water_bird_splash_03" ID="{4BE9C761-3AD6-455F-9B3F-17F55131E1A0}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_water_bird_splash_03.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="50165564"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_water_bird_splash_03" ID="{4BE9C761-3AD6-455F-9B3F-17F55131E1A0}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
 					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_bird_chirp_02" ID="{45F949C7-96B9-4623-BADC-9DDF27BBFB2F}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_bird_chirp_03" ID="{A7A68A7A-C655-4629-9E59-E580A83B77AA}" ShortID="840372376">
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="RC_LeavesGust" ID="{79924573-4195-4455-B8E7-8887C327081C}" ShortID="648244166">
+					<PropertyList>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+					</PropertyList>
 					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="sfx_bird_chirp_03" ID="{A48EA26D-4FEA-4861-BA4D-66C5ED146FBC}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_bird_chirp_03.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="828833447"/>
-							</MediaIDList>
-						</AudioFileSource>
+					<Sound Name="sfx_leaves_gust_01" ID="{F89F962E-87D6-4B14-89DE-ADF774C96A47}" ShortID="586676396">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_leaves_gust_01" ID="{14204C8E-7A7E-4244-85F7-103115E0E632}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_leaves_gust_01.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="441605302"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_leaves_gust_01" ID="{14204C8E-7A7E-4244-85F7-103115E0E632}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_leaves_gust_02" ID="{0A766D33-50A9-4089-9E3D-7CC963FDF64B}" ShortID="323613534">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_leaves_gust_02" ID="{DE8A58A6-A720-4030-B7AD-30A9B6ACB185}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_leaves_gust_02.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="544985877"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_leaves_gust_02" ID="{DE8A58A6-A720-4030-B7AD-30A9B6ACB185}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
+					<Sound Name="sfx_leaves_gust_03" ID="{B616744E-DAD4-45F9-810C-557859674EC4}" ShortID="92778300">
+						<ReferenceList>
+							<Reference Name="Conversion">
+								<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
+							</Reference>
+							<Reference Name="OutputBus">
+								<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
+							</Reference>
+						</ReferenceList>
+						<ChildrenList>
+							<AudioFileSource Name="sfx_leaves_gust_03" ID="{7485E51F-2CF1-44BE-B932-1FB2AA582001}">
+								<Language>SFX</Language>
+								<AudioFile>sfx_leaves_gust_03.wav</AudioFile>
+								<MediaIDList>
+									<MediaID ID="987739597"/>
+								</MediaIDList>
+							</AudioFileSource>
+						</ChildrenList>
+						<ActiveSourceList>
+							<ActiveSource Name="sfx_leaves_gust_03" ID="{7485E51F-2CF1-44BE-B932-1FB2AA582001}" Platform="Linked"/>
+						</ActiveSourceList>
+					</Sound>
 					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_bird_chirp_03" ID="{A48EA26D-4FEA-4861-BA4D-66C5ED146FBC}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_leaves_gust_01" ID="{F89F962E-87D6-4B14-89DE-ADF774C96A47}" ShortID="586676396">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_leaves_gust_01" ID="{14204C8E-7A7E-4244-85F7-103115E0E632}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_leaves_gust_01.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="441605302"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_leaves_gust_01" ID="{14204C8E-7A7E-4244-85F7-103115E0E632}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_leaves_gust_02" ID="{0A766D33-50A9-4089-9E3D-7CC963FDF64B}" ShortID="323613534">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_leaves_gust_02" ID="{DE8A58A6-A720-4030-B7AD-30A9B6ACB185}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_leaves_gust_02.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="544985877"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_leaves_gust_02" ID="{DE8A58A6-A720-4030-B7AD-30A9B6ACB185}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_leaves_gust_03" ID="{B616744E-DAD4-45F9-810C-557859674EC4}" ShortID="92778300">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_leaves_gust_03" ID="{7485E51F-2CF1-44BE-B932-1FB2AA582001}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_leaves_gust_03.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="987739597"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_leaves_gust_03" ID="{7485E51F-2CF1-44BE-B932-1FB2AA582001}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_water_bird_splash_01" ID="{3E9BA624-E6A9-43DF-9B2C-C8B73B039C3D}" ShortID="178949114">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_water_bird_splash_01" ID="{316D7B1A-8199-47E5-9C68-D8035A1DFC92}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_water_bird_splash_01.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="562978849"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_water_bird_splash_01" ID="{316D7B1A-8199-47E5-9C68-D8035A1DFC92}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_water_bird_splash_02" ID="{93C10FBE-5022-41D4-83AE-0706D200E081}" ShortID="403945063">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_water_bird_splash_02" ID="{8A6E8955-00A1-4E40-A0FE-75A266E45C83}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_water_bird_splash_02.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="374077526"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_water_bird_splash_02" ID="{8A6E8955-00A1-4E40-A0FE-75A266E45C83}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="sfx_water_bird_splash_03" ID="{60C5E353-9BDE-403E-B10A-B781756A2B99}" ShortID="360932995">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E9199EC7-AB69-4DA3-81BC-974B18D3672A}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="sfx_water_bird_splash_03" ID="{4BE9C761-3AD6-455F-9B3F-17F55131E1A0}">
-							<Language>SFX</Language>
-							<AudioFile>sfx_water_bird_splash_03.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="50165564"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="sfx_water_bird_splash_03" ID="{4BE9C761-3AD6-455F-9B3F-17F55131E1A0}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</Containers>
