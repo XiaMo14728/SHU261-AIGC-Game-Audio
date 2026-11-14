@@ -17,6 +17,10 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="amb_parklake_loop_01" ID="{9DACE1AB-1801-4979-A4B9-7D4F45FBAA05}">
+							<PropertyList>
+								<Property Name="LoopBegin" Type="Real64" Value="0"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>amb_parklake_loop_01.wav</AudioFile>
 							<MediaIDList>
@@ -34,11 +38,11 @@
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 					</PropertyList>
 					<ReferenceList>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
 						<Reference Name="Attenuation">
 							<ObjectRef Name="ATT_Park_3D" ID="{2BBA97D0-45CF-44C6-AB4D-66A5C1B25620}" WorkUnitID="{4DCE5A66-B14A-4CD9-9985-A7B4D30A4AEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -116,11 +120,11 @@
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 					</PropertyList>
 					<ReferenceList>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
 						<Reference Name="Attenuation">
 							<ObjectRef Name="ATT_Park_3D" ID="{2BBA97D0-45CF-44C6-AB4D-66A5C1B25620}" WorkUnitID="{4DCE5A66-B14A-4CD9-9985-A7B4D30A4AEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -198,11 +202,11 @@
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 					</PropertyList>
 					<ReferenceList>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
-						</Reference>
 						<Reference Name="Attenuation">
 							<ObjectRef Name="ATT_Park_3D" ID="{2BBA97D0-45CF-44C6-AB4D-66A5C1B25620}" WorkUnitID="{4DCE5A66-B14A-4CD9-9985-A7B4D30A4AEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5CEA630-955F-426E-9CBD-69DF9D31695E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>

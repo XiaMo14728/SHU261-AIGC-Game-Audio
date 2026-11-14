@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E333ECAC-9417-456F-B59B-96ED77DC577C}" SchemaVersion="133">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{E333ECAC-9417-456F-B59B-96ED77DC577C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E333ECAC-9417-456F-B59B-96ED77DC577C}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="SC_ParkLake" ID="{474FA397-85B6-4246-93AC-019556A86BDF}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="amb_parklake_loop_01" ID="{A2A73FF2-02A8-4DD8-8E3E-D7D60CC033F1}" WorkUnitID="{9BBB5217-69A2-45BE-A8BF-34A588F7FB52}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="RC_BirdChirp" ID="{49F6534E-DABD-4BF7-9AD2-FDF793920ED5}" WorkUnitID="{9BBB5217-69A2-45BE-A8BF-34A588F7FB52}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="RC_WaterBird" ID="{52CDC4A8-9954-43F4-A253-0E27F987BECB}" WorkUnitID="{9BBB5217-69A2-45BE-A8BF-34A588F7FB52}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="RC_LeavesGust" ID="{79924573-4195-4455-B8E7-8887C327081C}" WorkUnitID="{9BBB5217-69A2-45BE-A8BF-34A588F7FB52}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
