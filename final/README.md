@@ -51,6 +51,34 @@ GitHub 网页端不内嵌音频播放器，因此额外提供了试听页（需�
 打开后可直接在浏览器里播放全部 10 个声音资产，无需下载。
 
 ---
+## 📦 如何查看本作品
+
+### 方式一：在线试听（最快，无需安装任何软件）
+
+**https://xiamo14728.github.io/SHU261-AIGC-Game-Audio/final/listen/**
+
+打开即可在浏览器中播放全部 10 个声音资产。GitHub 网页端本身不内嵌音频播放器（`.wav` 只能下载），因此额外提供了该试听页。
+
+### 方式二：下载并打开 Wwise 工程
+
+1. 仓库页右上角绿色 **`Code`** 按钮 → **`Download ZIP`**（约 37 MB）
+   （或用 `git clone https://github.com/XiaMo14728/SHU261-AIGC-Game-Audio.git`）
+2. 解压后进入 `final/WwiseProject/ParkLakeAmbience/`
+3. 双击 **`ParkLakeAmbience.wproj`**
+
+**运行环境**：需本机安装 Wwise。推荐 **Wwise 2025.1.11.9262**；其他版本打开时会提示迁移工程，一般可自动完成。
+
+**工程打开后在哪里看**
+
+| 内容 | 位置 |
+| --- | --- |
+| 基底 `amb_parklake_loop_01` 与 3 个 Random Container | `Containers` 标签 |
+| 距离衰减 `ATT_Park_3D`（0 m→0 dB / 50 m→-96 dB，对数） | `ShareSets` → `Attenuations` |
+| Soundcaster 试听会话 `SC_ParkLake` | `Sessions` → `Soundcaster Sessions`（**双击即可播放**） |
+
+> 工程中的音频引用均为**相对路径**，可脱离原机器正常打开；`.cache/` 与 `GeneratedSoundBanks/` 未纳入版本控制，Wwise 打开时会自动重建，不影响使用。
+
+---
 ## 作业要求对照表
 
 | # | 要求 | 状态 | 对应文件/位置 |
