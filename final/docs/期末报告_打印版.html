@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SHU261基础实践期末报告</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 18mm 20mm 18mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "微软雅黑", "SimSun", serif;
+    font-size: 10.5pt;
+    line-height: 1.75;
+    color: #1a1a1a;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 32px 60px;
+    background: #fff;
+  }
+  h1 {
+    font-size: 20pt;
+    text-align: center;
+    margin: 0 0 6px;
+    letter-spacing: 1px;
+  }
+  h1 + p { text-align: center; color: #555; margin-top: 0; }
+  h2 {
+    font-size: 14pt;
+    margin: 26px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #333;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    margin: 18px 0 8px;
+    color: #1a3f6b;
+    page-break-after: avoid;
+  }
+  h4 {
+    font-size: 11pt;
+    margin: 14px 0 6px;
+    color: #333;
+    page-break-after: avoid;
+  }
+  p { margin: 8px 0; text-align: justify; }
+  strong { color: #000; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0 14px;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #bbb;
+    padding: 5px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #eef2f6; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 9pt;
+    background: #f2f4f6;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: #b03a2e;
+  }
+  pre {
+    background: #f6f8fa;
+    border: 1px solid #dde1e6;
+    border-left: 3px solid #4a7ab5;
+    padding: 10px 12px;
+    overflow-x: auto;
+    font-size: 9pt;
+    line-height: 1.5;
+    page-break-inside: avoid;
+  }
+  pre code { background: none; color: #222; padding: 0; }
+  blockquote {
+    margin: 10px 0;
+    padding: 8px 14px;
+    background: #f7f9fb;
+    border-left: 3px solid #9bb3cc;
+    color: #444;
+    font-size: 10pt;
+  }
+  blockquote p { margin: 4px 0; }
+  ul, ol { margin: 8px 0 8px 4px; padding-left: 22px; }
+  li { margin: 4px 0; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 18px 0; }
+  a { color: #1a5fa8; word-break: break-all; }
+  .todo { background: #ffe9a8; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  @media print {
+    body { padding: 0; max-width: none; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+<h1>1455A083《基础实践》（2）期末报告</h1>
+<p><strong>2026~2027 秋季学期</strong></p>
+<p>学号 ______________　　姓名 __________________　　得分 ___________</p>
+<blockquote>
+<p>⚠️ <strong>导出 PDF 前</strong>：把学号、姓名填上。文中标 <code><span class="todo">⬜ 待填</span></code> 的地方需你确认或补写。</p>
+</blockquote>
+<hr>
+<h2>一、实践总结</h2>
+<h3>1.1 具体内容</h3>
+<p>本次基础实践分两个阶段完成。</p>
+<p><strong>阶段一（平时作业 Task）</strong>：以&quot;当下 AIGC 在游戏音频设计中的应用&quot;为题做调研。从 Voice / Music / SFX 三个方向与 Text-to-Audio / Text-to-Speech / Video-to-Audio / Text-to-Video 等生成模式两条轴切入，梳理了 AIGC 在游戏音频中的落地方式、工程接入路径与权利合规风险，形成约 340 行的调研报告。</p>
+<p><strong>阶段二（期末作品 Final）</strong>：完成一次完整的环境声设计实践。以&quot;城市公园湖畔步道 · 清晨&quot;为设计对象，从场景分析出发划分基底与事件两层声景结构，制得 1 条 40 秒无缝循环基底与 9 个间断随机声（48kHz/24bit/stereo WAV），并在 Wwise 2025.1.11.9262 中构建交互音频工程，实现基底循环、随机触发与 3D 距离衰减。</p>
+<h3>1.2 收获</h3>
+<p><strong>① 建立了&quot;声音可以被结构化设计&quot;的意识。</strong> 过去做声音只是&quot;找几个素材贴上去&quot;，这次必须回答：这个场景有几层声音？哪些是包围的、哪些是有方位的？基底里能不能出现鸟叫？这些问题一旦问出来，技术方案几乎是自动导出的。</p>
+<p><strong>② 认识到&quot;技术配置是设计意图的结果，不是动作清单&quot;。</strong> 作业要求&quot;设置基底循环&quot;和&quot;设置随距离变化&quot;两项技术点。孤立地看它们只是两个操作；但从场景出发就会发现：基底是<strong>包围</strong>的，所以它必须是无方位的 2D 循环；事件是<strong>从某处传来</strong>的，所以它必须有 3D 定位和距离衰减。技术点的分工来自听觉逻辑本身。</p>
+<p><strong>③ 掌握了从素材到工程的完整链路。</strong> 采集 → 格式规范化 → 循环点处理 → 导入中间件 → 配置交互行为 → 验证。每一环都有具体的坑，见第四节。</p>
+<p><strong>④ 学会了用客观手段替代主观猜测。</strong> 素材挑选与切割边界的确定本可以&quot;听着差不多就行&quot;，但通过频谱分析、包络测量与自动化校验脚本，把大量判断变成了可复现的数据。这一条对最终质量的影响最大。</p>
+<h3>1.3 对已学理论知识的提高</h3>
+<ul>
+<li><strong>声景理论</strong>：把&quot;基底（keynote）&quot;与&quot;信号（signal）&quot;的区分落实到了具体技术配置上——基底做 2D 无限循环、事件做 3D 随机触发。理论不再是概念，而是可以直接翻译成工程参数的东西。</li>
+<li><strong>交互音频架构</strong>：理解了游戏音频不是&quot;播放文件&quot;，而是&quot;由游戏状态驱动、经中间件组织的实时系统&quot;。素材从稀缺变为过剩之后，中间件这类&quot;组织与响应&quot;层的重要性反而上升。</li>
+<li><strong>音频格式的工程意义</strong>：采样率、位深、声道数不是形式要求。本项目素材来自三种不同采样率（48k / 44.1k / 24k），统一重采样的过程让我理解了奈奎斯特频率、重采样的信息损失、以及&quot;24 bit 容器装不下不存在的信息&quot;这件事。</li>
+<li><strong>对 AIGC 的再认识</strong>：本次使用 AIGC 与素材库，与平时作业的理论分析形成对照，详见第三节（4）与第五节。</li>
+</ul>
+<hr>
+<h2>二、平时作业</h2>
+<h3>1. GitHub 账户创建情况</h3>
+<ul>
+<li><strong>GitHub 账号</strong>：<code>XiaMo14728</code>（<a href="https://github.com/XiaMo14728%EF%BC%89">https://github.com/XiaMo14728）</a></li>
+<li><strong>课程仓库</strong>：<a href="https://github.com/XiaMo14728/SHU261-AIGC-Game-Audio">https://github.com/XiaMo14728/SHU261-AIGC-Game-Audio</a></li>
+<li><strong>仓库属性</strong>：公开仓库（Public）</li>
+<li><strong>提交情况</strong>：共 <strong>33 次提交</strong>，跨越 2026-10-15 至 2026-11-15；受版本控制文件 <strong>92 个</strong>，其中 Markdown 文档 15 个、音频资产 20 个。</li>
+</ul>
+<p><strong>Git 基础操作掌握情况</strong>：已练习并掌握仓库初始化、远程关联、暂存与提交（<code>add</code> / <code>commit</code>）、推送与拉取、查看历史与差异（<code>log</code> / <code>diff</code> / <code>status</code>）、分支操作、撤销与回退（<code>restore</code> / <code>revert</code> / <code>reset</code>）、<code>.gitignore</code> 配置与冲突处理。完整记录见 <code>notes/git-操作记录.md</code>。</p>
+<p>实践中最有价值的三次真实操作：</p>
+<ol>
+<li><strong>历史重写</strong>：提交作者信息需要更正为本人时，在未推送前用 <code>cherry-pick --reset-author</code> 重建了提交链，并验证内容与备份完全一致后才删除备份分支。这让我理解了&quot;提交历史不可变&quot;的含义与改写历史的风险边界。</li>
+<li><strong><code>.gitignore</code> 的锚定规则</strong>：给 Wwise 工程写忽略规则时，<code>Originals/Plugins/</code> 这条<strong>没有生效</strong>——因为带内部斜杠的规则锚定在 <code>.gitignore</code> 所在目录，而工程实际多套了一层 <code>ParkLakeAmbience/</code>。改成 <code>**/Originals/Plugins/</code> 后，才把插件自动投放的 6.5 MB 工厂脉冲响应挡在仓库之外（暂存体积从 8.48 MB 降到 1.95 MB）。</li>
+<li><strong>生成物与源文件的边界</strong>：Wwise 工程只提交 <code>.wproj</code>、<code>.wwu</code> 等设计数据，<code>.cache/</code>、<code>GeneratedSoundBanks/</code>、<code>*.validationcache</code> 全部忽略。这一条在多人协作时会直接决定仓库是否可用。</li>
+</ol>
+<h3>2. &quot;当下 AIGC 在游戏音频设计中的应用&quot;调研</h3>
+<p>完整报告见仓库：<code>docs/AIGC在游戏音频设计中的应用_调研报告.md</code></p>
+<p><strong>调研框架</strong>：按&quot;内容方向&quot;与&quot;生成模式&quot;两条轴展开。</p>
+<table>
+<thead>
+<tr>
+<th>轴</th>
+<th>覆盖内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内容方向</td>
+<td>Voice（本地化配音、海量边缘台词、原型对白）、Music（成品曲 vs 素材+中间件编排）、SFX（Foley 自动拟音、程序化变体、占位资源）</td>
+</tr>
+<tr>
+<td>生成模式</td>
+<td>Text-to-Music/Audio、Text-to-Speech 与语音克隆、Video-to-Audio（Foley）、Text-to-Video（原生音频）、Audio-to-Audio</td>
+</tr>
+</tbody></table>
+<p><strong>核心结论</strong>：</p>
+<ol>
+<li>AIGC 在游戏音频中的现实定位是「<strong>素材生产与变体供应商</strong>」，而非「艺术决策者」；</li>
+<li><strong>离线生成 + 人工精修 + 中间件组织</strong>是当前最务实的工程组合；运行时生成受延迟与算力约束，仍属实验性质；</li>
+<li>素材从稀缺变为过剩后，Wwise / FMOD 这类「组织与响应」层的重要性<strong>上升而非下降</strong>；</li>
+<li>最大的风险不是技术，而是<strong>权利与合规</strong>；</li>
+<li>评估 AIGC 音频方案应看「<strong>平均可用率 + 修复成本</strong>」，而不是「最佳样例」。</li>
+</ol>
+<hr>
+<h2>三、期末作品</h2>
+<h3>1. 期末作品 GitHub 链接</h3>
+<pre><code>https://github.com/XiaMo14728/SHU261-AIGC-Game-Audio
+</code></pre>
+<p>期末作品位于仓库 <code>final/</code> 目录：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>final/assets/audio/</code></td>
+<td>10 个声音资产（1 基底 + 9 随机声）</td>
+</tr>
+<tr>
+<td><code>final/WwiseProject/ParkLakeAmbience/</code></td>
+<td>Wwise 2025.1.11.9262 工程</td>
+</tr>
+<tr>
+<td><code>final/docs/</code></td>
+<td>场景分析、素材说明、剪辑流程、Wwise 配置、本报告</td>
+</tr>
+<tr>
+<td><code>final/images/</code></td>
+<td>工程截图</td>
+</tr>
+<tr>
+<td><code>final/tools/</code></td>
+<td>格式校验脚本 <code>check-wav.js</code></td>
+</tr>
+<tr>
+<td><code>final/assets/amb-*.md</code></td>
+<td>源素材的客观测量记录与处理参数</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>2. 作品说明</h3>
+<h4>（1）确定设计对象，收集声音素材的过程</h4>
+<p><strong>设计对象：城市公园湖畔步道 · 清晨（雨后初晴）</strong></p>
+<p>一条沿湖的石板步道，左侧是成片的落羽杉和水杉林，右侧是湖面。时间为工作日清晨 6:30 前后，游客尚未涌入。</p>
+<p><strong>选择理由</strong>：</p>
+<ol>
+<li><strong>频段层次干净</strong>——树叶摩擦是高频宽带噪声，湖水拍岸集中在中低频，远处城市嗡鸣落在超低频，三层几乎不冲突。这对质量参差的素材尤其重要，需要靠频段分离来支撑空间感；</li>
+<li><strong>空间纵深明确</strong>——栈道、湖面、树林、远处城市构成由近及远的四层距离，声音的远近关系可被真实表达；</li>
+<li><strong>事件辨识度高</strong>——鸟鸣、水鸟起飞、阵风扫叶在频谱与时间形态上差异极大，不会互相掩盖；</li>
+<li><strong>天然对应 2D + 3D 架构</strong>——这一点直接决定了后续全部技术选型。</li>
+</ol>
+<p><strong>声景分层与素材需求</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>内容</th>
+<th>功能</th>
+<th>资产</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基底 L1</td>
+<td>风穿树冠</td>
+<td>空间高度与包围感</td>
+<td><code>amb_parklake_loop_01</code></td>
+</tr>
+<tr>
+<td>基底 L2</td>
+<td>湖水轻拍石岸</td>
+<td>空间实体与空旷感</td>
+<td>（同上，双层混合）</td>
+</tr>
+<tr>
+<td>基底 L3</td>
+<td>远处城市低频嗡鸣</td>
+<td>交代城市地理属性</td>
+<td>（同上，双层混合）</td>
+</tr>
+<tr>
+<td>事件 A</td>
+<td>鸟鸣短句</td>
+<td>近处生命感</td>
+<td><code>sfx_bird_chirp_01~03</code></td>
+</tr>
+<tr>
+<td>事件 B</td>
+<td>水鸟起飞（拍翅）</td>
+<td>中距离突发动态</td>
+<td><code>sfx_water_bird_splash_01~03</code></td>
+</tr>
+<tr>
+<td>事件 C</td>
+<td>阵风扫叶</td>
+<td>打破时间均匀性</td>
+<td><code>sfx_leaves_gust_01~03</code></td>
+</tr>
+</tbody></table>
+<p>合计 <strong>1 条基底 + 3 类共 9 个随机声</strong>。作业最低要求为「1 条基底 + 3 个随机声」，这里做 9 个是因为 <strong>Random Container 需要每类至少 3 个变体</strong>才能有效避免机械重复。</p>
+<p><strong>素材收集方式</strong></p>
+<p>原计划全部使用 AIGC 生成，实际执行中遇到地区限制与现实约束，最终改为<strong>素材库 + 客观测量筛选</strong>：</p>
+<ul>
+<li><strong>基底环境声</strong>：取自两个免费素材库录音（Pixabay 的 <code>ambience-wind-blowing-through-trees</code>，Freesound 的 <code>noise-of-wind-in-tree-foliage</code>），双层叠加。</li>
+<li><strong>间断随机声（9 个）</strong>：取自免费音效库。</li>
+</ul>
+<blockquote>
+<p><code><span class="todo">⬜ 待填</span></code>：请补充这 9 个随机声的具体下载页面链接与授权方式。建议格式：
+<code>bird_01~03</code> — Pixabay，<a href="https://pixabay.com/sound-effects/...%EF%BC%88Pixabay">https://pixabay.com/sound-effects/...（Pixabay</a> 内容许可）</p>
+</blockquote>
+<p><strong>为什么放弃全程 AIGC</strong>：长时、连续、无音乐性的环境声恰是当前音频生成模型最薄弱的一环；而素材库里的真实录音自带空间感与微动态。这一取舍本身是一次设计判断——<strong>不同性质的声音用不同手段</strong>：真实素材提供空间真实感与可靠性，合成手段提供变化量与生产效率。</p>
+<p><strong>素材的客观测量（而非凭感觉选材）</strong></p>
+<p>对两条基底源素材做了量化分析（MP3 帧解析 + WASM 解码 + FFT）：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>主层（traian1984）</th>
+<th>副层（freesound）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>采样率 / 编码</td>
+<td>48000 Hz / 256 kbps CBR</td>
+<td>24000 Hz / 160 kbps</td>
+</tr>
+<tr>
+<td>左右声道相关性</td>
+<td>0.786</td>
+<td>0.598</td>
+</tr>
+<tr>
+<td>动态范围（5%–95% 分位）</td>
+<td><strong>8.31 dB</strong></td>
+<td>13.19 dB</td>
+</tr>
+<tr>
+<td>瞬态事件（&gt;6 dB 孤立峰）</td>
+<td>2 个</td>
+<td><strong>0 个</strong></td>
+</tr>
+<tr>
+<td>峰值电平</td>
+<td><strong>-31.14 dBFS</strong>（偏低 25 dB）</td>
+<td>-3.99 dBFS</td>
+</tr>
+<tr>
+<td>频段能量 2–8 kHz</td>
+<td><strong>5.4%</strong></td>
+<td><strong>62.2%</strong></td>
+</tr>
+<tr>
+<td>频段能量 &lt;200 Hz</td>
+<td><strong>71.3%</strong></td>
+<td>1.4%</td>
+</tr>
+</tbody></table>
+<p>两层频段分布的互补性一目了然：<strong>主层的短板正是副层的长板</strong>。据此确定双层叠加方案，而不是试图用一条素材 EQ 硬调。</p>
+<p><strong>选材准则</strong>：基底层不允许出现可辨识的离散事件。原因有三——会与 3D 事件层互相打架、会被 40 秒循环周期性暴露、会掩蔽掉真正需要定位的声音。判断方法是把音量降到最终电平连听三遍，若<strong>能预期某个声音何时出现</strong>，它就是&quot;钉子&quot;。</p>
+<h4>（2）剪辑素材，导出资产的过程</h4>
+<p><strong>工具与工程设置</strong>：Reaper 7.86；工程采样率 <strong>48000 Hz</strong>、位深 <strong>24 bit</strong>。</p>
+<p><strong>基底处理链路</strong>：</p>
+<pre><code>两条源素材（48k / 24k）
+  ↓ 副层重采样 24k → 48k（零插值 + 127 抽头加窗 sinc FIR，截止 11 kHz）
+  ↓ 各自按窗口切片 + &quot;尾巴叠头&quot;等功率交叉淡化 2 s → 精确 40.000 s
+  ↓ 滤波（主层：110 Hz 高通 + 2.5 kHz 高架 +2.5 dB；副层：1.5 kHz 高通）
+  ↓ 电平配平（主层峰值 -6 dBFS；副层 RMS 比主层低 15 dB）
+  ↓ 双层叠加 → 导出 48kHz/24bit/stereo WAV
+</code></pre>
+<p><strong>循环点处理（本作品技术难度最高的一步）</strong>——采用&quot;尾巴叠头&quot;交叉淡化：</p>
+<ol>
+<li>从源素材中选一段音色均匀、无突发事件的区间；</li>
+<li>取该段最后 2 秒，复制粘贴到段落开头，形成 2 秒重叠；</li>
+<li>对重叠区做 2 秒等功率交叉淡化：复制段淡出、原始段淡入；</li>
+<li>从段落起点渲染 40 秒。</li>
+</ol>
+<p>这样文件开头是&quot;上一轮的结尾&quot;淡入、结尾是&quot;下一轮的开头&quot;淡出，首尾相接时能量连续。</p>
+<p><strong>验证数据</strong>：把文件首尾相接，比较接缝处样点跳变与全文件样点跳变的 99% 分位——比值为 <strong>0.79×</strong>（小于正常波动范围，即无缝）；开头 100 ms 与结尾 100 ms 的 RMS 差 <strong>0.2 dB</strong>（无音量塌陷）。</p>
+<p><strong>随机声处理</strong>：9 个随机声统一裁掉首尾静音 → 60 Hz 高通 → 峰值归一至 -3 dBFS → 按类型加淡入淡出（静音间隙处切出的用 60 ms，连续纹理型用 150 ms）。</p>
+<p><strong>切割边界的确定（一次事后返工）</strong></p>
+<p>最初按能量包络粗略选窗，试听后发现多个文件切在声音中间（<code>sfx_bird_chirp_02</code> 结尾残留半声鸟叫、<code>sfx_water_bird_splash_02</code> 中段混入明显金属碰撞声）。改进做法：</p>
+<ol>
+<li><strong>静音间隙检测</strong>：计算 20 ms 包络，标记低于峰值 -30 dB 的连续安静段，只在&quot;安静段结束&quot;与&quot;另一安静段开始&quot;之间取窗，保证两头都在静音里；</li>
+<li><strong>频谱音调性分析</strong>：对每个 50 ms 帧计算&quot;前三强谱峰均值 / 谱中位数&quot;，音调性高的帧即存在窄带音（金属声、鸣笛）；据此定位并避开。</li>
+</ol>
+<p>修正后 9 个文件的边界复查结果：8 个完全干净，1 个为自然起音（非切割问题）。</p>
+<p><strong>自动化校验</strong></p>
+<p>为避免人工确认格式出错，编写了 WAV 头解析脚本 <code>final/tools/check-wav.js</code>（无第三方依赖，直接读 RIFF/fmt 块），逐文件校验采样率、位深、声道数、时长，并检查基底是否 &gt;30 秒、随机声数量是否 ≥3。</p>
+<p>最终结果：</p>
+<pre><code>文件总数: 10    通过: 10    失败: 0
+基底环境声 amb_*: 1 个（要求 ≥1，且 &gt;30s）
+间断随机声 sfx_*: 9 个（要求 ≥3）
+✅ 全部符合规范
+</code></pre>
+<h4>（3）使用 Wwise 的情况</h4>
+<p><strong>环境</strong>：Audiokinetic Launcher + <strong>Wwise 2025.1.11.9262</strong>，工程名 <code>ParkLakeAmbience</code>（不含中文），平台 Windows。</p>
+<p><strong>工程层级结构</strong>：</p>
+<pre><code>Containers（该版本的容器层级，旧称 Actor-Mixer Hierarchy）
+├── amb_parklake_loop_01          Sound SFX，2D，Loop=True
+├── RC_BirdChirp                  Random Container ×3 变体，3D，衰减 ATT_Park_3D
+├── RC_WaterBird                  Random Container ×3 变体，3D，衰减 ATT_Park_3D
+└── RC_LeavesGust                 Random Container ×3 变体，3D，衰减 ATT_Park_3D
+
+Attenuations
+└── ATT_Park_3D                   0 m = 0 dB（对数） → 50 m = -96 dB
+</code></pre>
+<blockquote>
+<p>说明：Wwise 2025.1 中，过去名为 <strong>Actor-Mixer Hierarchy</strong> 的层级在 Project Explorer 里已改名为 <strong>Containers</strong>。工程文件的 <code>.wproj</code> 中也只声明 <code>Containers</code>，无 <code>Actor-Mixer Hierarchy</code>。</p>
+</blockquote>
+<p><strong>（a）基底的持续循环</strong></p>
+<p>对 <code>amb_parklake_loop_01</code> 启用循环（属性 <code>IsLoopingEnabled = True</code>），使其无限循环播放；Playback Limit 保持 1，确保基底只有一路。</p>
+<p><strong>基底刻意不启用 3D、不绑定 Attenuation</strong>——它的功能是包围听者，不应有方位。</p>
+<p><strong>（b）Random Container 随机触发</strong></p>
+<p>三类随机声各建一个 Random Container，容纳各自的 3 个变体。为什么是 3 个变体：Random Container 的价值在于&quot;同一事件听起来不像同一个文件&quot;，只有 1 个变体时随机触发会退化为机械重复。</p>
+<p><strong>（c）3D Positioning 与距离衰减</strong></p>
+<p>三个 Random Container 均启用 3D 空间化（<code>3DSpatialization = 1</code>），并共同引用 Attenuation ShareSet <strong><code>ATT_Park_3D</code></strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>曲线类型</td>
+<td>对数（Log3）</td>
+</tr>
+<tr>
+<td>起点</td>
+<td>0 m → 0 dB</td>
+</tr>
+<tr>
+<td>终点（Max Distance）</td>
+<td><strong>50 m → -96 dB</strong></td>
+</tr>
+</tbody></table>
+<p>效果：听者在 0–5 m 内几乎满音量，随后按对数规律衰减，50 m 外基本不可闻。</p>
+<p><strong>定位策略的对照</strong>——这是本设计的核心表达：</p>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>定位</th>
+<th>Attenuation</th>
+<th>设计理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基底环境声</td>
+<td><strong>2D</strong></td>
+<td>不绑定</td>
+<td>包围感，无方位</td>
+</tr>
+<tr>
+<td>3 个 Random Container</td>
+<td><strong>3D</strong></td>
+<td><code>ATT_Park_3D</code></td>
+<td>事件有明确来向与距离</td>
+</tr>
+</tbody></table>
+<p><strong>（d）Soundcaster 预览测试</strong></p>
+<blockquote>
+<p><code><span class="todo">⬜ 待填</span></code>：请补充 Soundcaster 中的测试结论（基底循环是否无缝、随机声是否每次换变体、拖动听者位置距离变化是否明显），并插入截图 <code>shot_05</code>。</p>
+</blockquote>
+<p><strong>（e）.gitignore 配置</strong></p>
+<p>Wwise 工程提交时通过 <code>.gitignore</code> 排除 <code>.cache/</code>、<code>GeneratedSoundBanks/</code>、<code>*.validationcache</code> 等生成物，只保留 <code>.wproj</code>、<code>.wwu</code> 与 <code>Originals/</code> 原始音频，避免无意义的二进制变更与冲突。此外还需排除插件安装时自动投放的工厂脉冲响应（<code>**/Originals/Plugins/</code>，约 6.5 MB）。</p>
+<h4>（4）对作品的自我评价</h4>
+<p><strong>做得比较好的地方</strong></p>
+<ol>
+<li><strong>设计逻辑自洽</strong>。2D / 3D 的分工不是为凑技术点，而是从场景的&quot;包围 vs 方位&quot;关系推导出来的，技术配置与设计意图一一对应。</li>
+<li><strong>选材有量化依据</strong>。对源素材做了采样率、动态范围、瞬态事件、频段分布的实测，用数据证明了双层叠加的必要性，而不是&quot;听着差不多&quot;。</li>
+<li><strong>格式规范经自动化校验</strong>。10 个资产全部通过脚本校验，不靠肉眼确认。</li>
+<li><strong>过程可复现</strong>。仓库中保留了源素材测量记录、处理参数、校验脚本与 Wwise 工程，任何人可据此复现整个作品。</li>
+<li><strong>工程与生成物的边界清晰</strong>。<code>.gitignore</code> 规则经 <code>check-ignore</code> 逐条核对，仓库不含缓存与 SoundBank。</li>
+</ol>
+<p><strong>不足之处</strong></p>
+<ol>
+<li><strong>素材全部来自素材库，缺少实地录音的空间细节</strong>。真实录音的场地感、空气感是合成难以完全替代的；</li>
+<li><strong>基底主层本身偏低频</strong>（&lt;200 Hz 占 71.3%），虽用副层与 EQ 补偿，但补不出原本不存在的高频细节；</li>
+<li><strong>声场只有 2D 基底 + 少量 3D 事件</strong>，未做遮挡（Obstruction）、混响区域（Room/Portal）、动态混音等更复杂的交互设计；</li>
+<li><strong>随机声变体偏少</strong>，每类 3 个在长时间聆听下仍可能被听出循环感。</li>
+<li><code><span class="todo">⬜ 待填</span></code>：你自己的其他感受</li>
+</ol>
+<p><strong>改进方向</strong></p>
+<ol>
+<li>采用「真实录音打底 + 合成素材补变体」的混合方案，兼顾空间真实感与变化量；</li>
+<li>引入 Wwise 的 Room / Portal 与 Obstruction，让&quot;湖对岸的声音&quot;真的被树丛衰减；</li>
+<li>用 RTPC 驱动动态混音，例如按玩家与湖岸的距离调整水声占比；</li>
+<li>每类随机声扩充到 6–8 个变体，并引入 Weight 与 Shuffle 策略控制分布。</li>
+</ol>
+<p><strong>与平时作业调研的呼应</strong></p>
+<p>平时作业中分析过 AIGC 在游戏音频中的&quot;权利与合规&quot;风险与&quot;质量天花板&quot;问题。本次期末作品实际使用 AIGC 与素材库后，这些判断被具体化了：</p>
+<ul>
+<li><strong>&quot;平均可用率 + 修复成本&quot;才是评估标准</strong>——本次 9 个随机声的切割边界前后返工两轮，正是&quot;修复成本&quot;的真实体现；</li>
+<li><strong>AIGC 是素材供应商，不是艺术决策者</strong>——素材能否用、怎么用、如何组织成有意义的声景，完全依赖人的听觉判断与结构设计；</li>
+<li><strong>真实素材与合成素材各有其位</strong>——长时环境声用真实录音，短促功能性音效用合成或库素材，这个分工比&quot;全用某一种&quot;更可靠。</li>
+</ul>
+<hr>
+<h2>四、遇到的问题与解决</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>问题</th>
+<th>原因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>AIGC 长音频工具 Stable Audio 注册被阻断</td>
+<td>地区 IP 限制，非操作问题</td>
+<td>改用免费素材库 + 双层叠加，并以实测数据论证选材</td>
+</tr>
+<tr>
+<td>2</td>
+<td>基底源素材峰值仅 -31 dBFS</td>
+<td>上传者电平留了大量余量</td>
+<td>整体增益 +25 dB 提至 -6 dBFS（增益线性，不改变信噪比）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>基底偏低频，&quot;树叶沙沙&quot;不足</td>
+<td>单条素材频段分布不均</td>
+<td>叠加高频层（副层 2–8 kHz 占 62.2%），并做频段分工 EQ</td>
+</tr>
+<tr>
+<td>4</td>
+<td>循环点接缝可闻</td>
+<td>首尾能量不连续</td>
+<td>&quot;尾巴叠头&quot; 2 秒等功率交叉淡化，实测接缝跳变 0.79×</td>
+</tr>
+<tr>
+<td>5</td>
+<td>多个随机声切在声音中间</td>
+<td>仅按能量包络选窗，未考虑声音边界</td>
+<td>引入静音间隙检测（20 ms 包络 + -30 dB 阈值）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>随机声中混入金属碰撞声</td>
+<td>窗口落在拍翅结束后的低能量残留区</td>
+<td>引入频谱音调性分析定位并避开</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Wwise 中找不到 <code>Actor-Mixer Hierarchy</code></td>
+<td>Wwise 2025.1 已将其更名为 <code>Containers</code></td>
+<td>查 <code>.wproj</code> 确认层级列表后按 <code>Containers</code> 操作</td>
+</tr>
+<tr>
+<td>8</td>
+<td>导入音频后工程未保存</td>
+<td>音频复制进 <code>Originals/</code> 但对象仅在内存</td>
+<td>及时 <code>Ctrl+S</code>，并核对 <code>.wwu</code> 中是否出现对象定义</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>.gitignore</code> 中 <code>Originals/Plugins/</code> 不生效</td>
+<td>带内部斜杠的规则锚定在 <code>.gitignore</code> 所在目录，实际路径多一层</td>
+<td>改用 <code>**/Originals/Plugins/</code>，暂存体积从 8.48 MB 降至 1.95 MB</td>
+</tr>
+<tr>
+<td>10</td>
+<td>衰减曲线不生效（无距离变化）</td>
+<td>从工厂模板复制时 <code>CurveToUse=&quot;None&quot;</code>（该模板走物理模型）</td>
+<td>改为 <code>CurveToUse=&quot;Custom&quot;</code>，曲线生效为 0 m→0 dB、50 m→-96 dB</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Wwise 面板误关后无法恢复</td>
+<td>布局被存成&quot;修改版工厂布局&quot;，<code>Layouts → Designer</code> 加载的仍是坏版本</td>
+<td>移走 <code>Layouts\7\Modified Factory Layouts</code>，回落到原始工厂布局</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>五、反思与总结</h2>
+<p><strong>关于技术</strong></p>
+<p>本作品最关键的技术点是<strong>循环点处理</strong>与<strong>2D/3D 分工</strong>。前者决定环境声是否&quot;经得起长时间听&quot;，后者决定声场是否有空间逻辑。二者的共同点是：<strong>它们都不是软件里点一下就有的东西，而是需要先想清楚&quot;要什么效果&quot;，再倒推实现路径。</strong></p>
+<p>另一个体会是**&quot;能测量就不要靠感觉&quot;**。素材的电平、频段、切割边界都可以用数据判断；把主观判断压缩到最小范围，剩下的才交给耳朵。这在时间紧张时尤其重要——不可能把每个文件都反复听二十遍。</p>
+<p><strong>关于 AIGC 用于声音设计</strong></p>
+<p>实操后对平时作业的结论有两点修正：</p>
+<ol>
+<li><strong>AIGC 在&quot;短促、形态明确&quot;的音效上确实可靠</strong>（鸟鸣、拍翅、风声这类几秒的事件），但在<strong>长时持续的环境声</strong>上明显偏弱——这也解释了为什么行业里 AI 音效落地的第一个场景往往是占位资源与变体生成；</li>
+<li><strong>&quot;生成&quot;不是最贵的一步，&quot;筛选与修复&quot;才是</strong>。真正耗时的是判断哪一条能用、切割边界在哪、要不要返工。</li>
+</ol>
+<p><strong>关于局限</strong></p>
+<p>本作品最大的遗憾是没有实地录音。真实录音的场地感、空气感、随机细节是素材库与生成模型都难以完全替代的。如果重做一次，我会先带手机去公园录 10 分钟环境底噪，再以此为基底、用素材库补齐事件层——真实打底、合成为辅，这也是目前最务实的工作方式。</p>
+<hr>
+<h2>附录 A · 截图清单</h2>
+<p><strong>工程截图</strong>（<code>final/images/</code>）</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>shot_01.png</code></td>
+<td>Containers 层级结构</td>
+<td>✅ 已提供</td>
+</tr>
+<tr>
+<td><code>shot_02.png</code></td>
+<td>基底 Loop 属性</td>
+<td>✅ 已提供</td>
+</tr>
+<tr>
+<td><code>shot_03.png</code></td>
+<td>Random Container 设置</td>
+<td>✅ 已提供</td>
+</tr>
+<tr>
+<td><code>shot_04.png</code></td>
+<td>Positioning / Attenuation 配置</td>
+<td>✅ 已提供</td>
+</tr>
+<tr>
+<td><code>shot_05.png</code></td>
+<td>Soundcaster 预览测试</td>
+<td><code>⬜ 待补</code></td>
+</tr>
+<tr>
+<td><code>scene_01~04.jpg</code></td>
+<td>场景照片</td>
+<td><code>⬜ 待补</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><code><span class="todo">⬜ 待填</span></code>：场景照片尚未准备。作业要求&quot;准备好相应的照片或者图片&quot;，可使用实地拍摄或免费图库图片（如 Pexels、Unsplash、Pixabay）。<strong>若用图库图片，必须注明来源与授权方式</strong>，否则有侵权风险。</p>
+</blockquote>
+<h2>附录 B · 参考资料</h2>
+<ol>
+<li>Audiokinetic Wwise Fundamentals 官方教程：<a href="https://www.audiokinetic.com/zh/learning/learn-wwise/wwise-fundamentals">https://www.audiokinetic.com/zh/learning/learn-wwise/wwise-fundamentals</a></li>
+<li>Wwise 2025.1 文档：<a href="https://www.audiokinetic.com/zh/public-library/2025.1.11_9262/">https://www.audiokinetic.com/zh/public-library/2025.1.11_9262/</a></li>
+<li>Reaper 官方用户指南：<a href="https://www.reaper.fm/userguide.php">https://www.reaper.fm/userguide.php</a></li>
+<li>Pixabay Sound Effects（素材来源）：<a href="https://pixabay.com/sound-effects/">https://pixabay.com/sound-effects/</a></li>
+<li>Freesound（素材来源）：<a href="https://freesound.org/">https://freesound.org/</a></li>
+<li><code><span class="todo">⬜ 待填</span></code>：如引用声景理论文献（如 Schafer《The Soundscape》），请补上</li>
+</ol>
+
+</body>
+</html>
