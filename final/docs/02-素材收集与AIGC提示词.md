@@ -159,11 +159,19 @@ AIGC 素材用于课程作业是允许的，但要**如实说明**，并且注�
 
 **生成音效**
 
-1. 登录后左侧菜单找 **Sound Effects**（不是 Text to Speech —— 那个是配音）
-2. 把 `docs/02` 第三节的提示词粘进输入框
-3. 时长按提示词里写的秒数设；有 Prompt Influence 之类的强度参数保持默认
-4. 点 **Generate**，结果列在下方，逐个试听
-5. 满意的下载
+> ⚠️ **先选对平台**：ElevenLabs 目前把产品分成两个平台品牌 —— **ElevenCreative**（创作向：语音合成、配音、音乐、**音效**）和 **ElevenAgents**（对话式语音智能体）。**本项目要选 `ElevenCreative`**，`ElevenAgents` 是做语音机器人/客服对话的，与音效无关。
+
+1. **最省事的入口：直接打开 https://elevenlabs.io/sound-effects**
+   （登录状态下等价于 https://elevenlabs.io/app/sound-effects ，即 ElevenCreative → Playground → Sound Effects）
+2. 如果是从首页导航进去：**ElevenCreative** → **Playground** → **Sound Effects**
+3. 把 `docs/02` 第三节的提示词粘进输入框
+4. 时长按提示词里写的秒数设；有 Prompt Influence 之类的强度参数保持默认
+5. 点 **Generate**，结果列在下方，逐个试听
+6. 满意的下载
+
+**如果注册流程问了套餐**：选 **Free / 免费版**即可，不需要绑卡。
+
+**参考**：中文官方文档 https://elevenlabs.io/docs/zh/eleven-creative/playground/sound-effects
 
 **免费版限制（以页面实际显示为准）**
 
