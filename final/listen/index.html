@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>城市公园湖畔步道 · 清晨 —— 环境声设计试听</title>
+<style>
+  :root { --ink:#1a1a1a; --sub:#5b6672; --line:#e2e6ea; --accent:#1a5fa8; --bg:#fbfcfd; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 18px 80px;
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.7;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; }
+  header { padding: 48px 0 22px; border-bottom: 2px solid var(--ink); }
+  h1 { font-size: 25px; margin: 0 0 10px; letter-spacing: .5px; }
+  .sub { color: var(--sub); font-size: 14px; }
+  .sub a { color: var(--accent); text-decoration: none; }
+  .sub a:hover { text-decoration: underline; }
+  .note {
+    margin: 26px 0; padding: 14px 18px; background: #fff;
+    border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    font-size: 13.5px; color: #33404d; border-radius: 2px;
+  }
+  .note b { color: var(--ink); }
+  h2 { font-size: 17px; margin: 38px 0 6px; padding-bottom: 7px; border-bottom: 1px solid var(--line); }
+  .hint { font-size: 12.5px; color: var(--sub); margin: 0 0 16px; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 4px;
+    padding: 14px 16px; margin: 12px 0;
+  }
+  .card .row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .name { font-weight: 600; font-size: 14px; font-family: Consolas, monospace; color: #223344; }
+  .meta { font-size: 12px; color: var(--sub); white-space: nowrap; }
+  .desc { font-size: 13px; color: #46525e; margin: 6px 0 10px; }
+  audio { width: 100%; height: 34px; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 10px;
+    background: #eef4fa; color: var(--accent); margin-left: 8px; vertical-align: 1px;
+  }
+  .tag.base { background:#eaf7ee; color:#1e7a45; }
+  .tag.evt { background:#fdf0e8; color:#b4610f; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>城市公园湖畔步道 · 清晨</h1>
+  <div class="sub">
+    2026 SHU 基础实践 · 期末作品 —— 环境声设计试听页<br>
+    代码与工程仓库：<a href="https://github.com/XiaMo14728/SHU261-AIGC-Game-Audio">github.com/XiaMo14728/SHU261-AIGC-Game-Audio</a>
+  </div>
+</header>
+
+<div class="note">
+  <b>关于本页</b>：GitHub 网页端不内嵌音频播放器，因此另建此试听页，可直接在浏览器中播放全部声音资产。<br>
+  <b>规格</b>：全部资产均为 <b>48 kHz / 24 bit / Stereo WAV</b>。基底为 40 秒无缝循环，建议开启循环播放连续聆听，检验接缝。
+</div>
+
+<h2>基底环境声<span class="tag base">基础层</span></h2>
+<p class="hint">由两条源素材分层叠加：主层提供低频厚度，副层提供高频树叶细节。经"尾巴叠头"交叉淡化处理为无缝循环。</p>
+
+<div class="card">
+  <div class="row"><span class="name">amb_parklake_loop_01.wav</span><span class="meta">40.00 s · 48k/24bit/stereo</span></div>
+  <div class="desc">湖畔树林晨间环境底噪。3D 定位关闭（2D），无限循环，作为整个场景的包围层。</div>
+  <audio controls loop preload="metadata" src="../assets/audio/amb_parklake_loop_01.wav"></audio>
+</div>
+
+<h2>间断随机声 · 鸟鸣<span class="tag evt">事件层</span></h2>
+<p class="hint">在 Wwise 中由 <code>RC_BirdChirp</code> Random Container 随机触发，3D 定位，绑定量衰减 ATT_Park_3D。</p>
+
+<div class="card">
+  <div class="row"><span class="name">sfx_bird_chirp_01.wav</span><span class="meta">2.00 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_bird_chirp_01.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_bird_chirp_02.wav</span><span class="meta">1.52 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_bird_chirp_02.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_bird_chirp_03.wav</span><span class="meta">2.00 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_bird_chirp_03.wav"></audio>
+</div>
+
+<h2>间断随机声 · 水鸟拍翅<span class="tag evt">事件层</span></h2>
+<p class="hint">由 <code>RC_WaterBird</code> 随机触发，三个变体在距离感与力度上有差异。</p>
+
+<div class="card">
+  <div class="row"><span class="name">sfx_water_bird_splash_01.wav</span><span class="meta">1.91 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_water_bird_splash_01.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_water_bird_splash_02.wav</span><span class="meta">1.80 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_water_bird_splash_02.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_water_bird_splash_03.wav</span><span class="meta">2.22 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_water_bird_splash_03.wav"></audio>
+</div>
+
+<h2>间断随机声 · 阵风扫叶<span class="tag evt">事件层</span></h2>
+<p class="hint">由 <code>RC_LeavesGust</code> 随机触发，用于打破基底的时间均匀性。</p>
+
+<div class="card">
+  <div class="row"><span class="name">sfx_leaves_gust_01.wav</span><span class="meta">3.25 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_leaves_gust_01.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_leaves_gust_02.wav</span><span class="meta">3.28 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_leaves_gust_02.wav"></audio>
+</div>
+<div class="card">
+  <div class="row"><span class="name">sfx_leaves_gust_03.wav</span><span class="meta">3.25 s</span></div>
+  <audio controls preload="metadata" src="../assets/audio/sfx_leaves_gust_03.wav"></audio>
+</div>
+
+<h2>交互实现说明</h2>
+<div class="note">
+  <b>Wwise 2025.1.11.9262 · 工程 ParkLakeAmbience</b><br>
+  · 基底 <code>amb_parklake_loop_01</code>：Loop 启用，2D，不绑衰减<br>
+  · <code>RC_BirdChirp</code> / <code>RC_WaterBird</code> / <code>RC_LeavesGust</code>：Random Container，各含 3 个变体，3D 空间化开启<br>
+  · 衰减 <code>ATT_Park_3D</code>：对数曲线，0 m = 0 dB → 50 m = -96 dB<br>
+  · Soundcaster 会话 <code>SC_ParkLake</code> 可在工程中直接打开试听组合效果<br><br>
+  本页只能逐条播放单个资产；<b>基底循环 + 随机触发 + 距离衰减的组合效果</b>需在 Wwise 中通过 Soundcaster 试听，
+  亦可参见仓库 <code>final/images/shot_06.png</code>。
+</div>
+
+<footer>
+  2026 SHU 基础实践 · 唐潇 · 期末作品<br>
+  声音资产：48 kHz / 24 bit / Stereo WAV　|　工程：Wwise 2025.1.11.9262
+</footer>
+
+</div>
+</body>
+</html>
