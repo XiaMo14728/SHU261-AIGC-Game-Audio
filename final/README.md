@@ -46,7 +46,7 @@
 
 GitHub 网页端不内嵌音频播放器，因此额外提供了试听页（需在仓库 Settings → Pages 中启用一次）：
 
-**https://xiaomo14728.github.io/SHU261-AIGC-Game-Audio/final/listen/**
+**https://xiamo14728.github.io/SHU261-AIGC-Game-Audio/final/listen/**
 
 打开后可直接在浏览器里播放全部 10 个声音资产，无需下载。
 
