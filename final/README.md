@@ -66,7 +66,8 @@ final/
 | Reaper | 7.86 x64（Cockos 官方签名，已验证） | ✅ 安装包已下载：`~/Downloads/reaper786_x64-install.exe` |
 | Audiokinetic Launcher | 官网注册后下载 | ⬜ 需在浏览器操作 |
 | Wwise | 2025.1.11.9262（Launcher 内选择版本） | ⬜ |
-| AIGC 音效工具 | ElevenLabs / Stable Audio 等 | ⬜ 见 `docs/02` |
+| AIGC 音效工具 | ElevenLabs（ElevenCreative → Sound Effects） | ✅ 站点可直连，账号待注册 |
+| 基底环境声来源 | Pixabay Sound Effects / 爱给网 / ElevenLabs 拼接 | ⬜ Stable Audio 注册受地区阻断，已改用此路线 |
 
 ---
 
