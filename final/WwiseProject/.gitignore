@@ -17,6 +17,18 @@ GeneratedSoundBanks/
 *.wwu.tmp
 *.wwu.autosave
 
+# ---------- 插件自带的工厂素材 ----------
+# iZotope Hybrid Reverb 等插件安装时会往 Originals/Plugins/ 里投放
+# 一批工厂脉冲响应（IR），约 6.5 MB。这些由插件安装程序生成，
+# 不是本项目的设计产物，重装插件即可恢复，因此不入库。
+#
+# 注意：带内部斜杠的规则锚定在本 .gitignore 所在目录，
+# 而工程实际多套了一层 ParkLakeAmbience/，所以必须用 **/ 前缀。
+**/Originals/Plugins/
+
+# ---------- 机器相关的校验缓存 ----------
+*.validationcache
+
 # ---------- 日志与崩溃报告 ----------
 Logs/
 *.log
