@@ -111,8 +111,8 @@ function main() {
   const rows = files.map((f) => check(path.join(target, f)));
 
   const pad = (s, n) => String(s).padEnd(n);
-  console.log(pad("文件", 32) + pad("采样率", 10) + pad("位深", 8) + pad("声道", 9) + pad("时长", 10) + "结果");
-  console.log("-".repeat(78));
+  console.log(pad("文件", 38) + pad("采样率", 10) + pad("位深", 8) + pad("声道", 9) + pad("时长", 10) + "结果");
+  console.log("-".repeat(84));
 
   let ambCount = 0;
   let sfxCount = 0;
@@ -121,12 +121,12 @@ function main() {
     if (/^sfx_/i.test(r.name)) sfxCount++;
 
     if (!r.info) {
-      console.log(pad(r.name, 32) + "—".repeat(30) + "FAIL");
+      console.log(pad(r.name, 38) + "—".repeat(30) + "FAIL");
       continue;
     }
     const i = r.info;
     console.log(
-      pad(r.name, 32) +
+      pad(r.name, 38) +
       pad(i.sampleRate + " Hz", 10) +
       pad(i.bitsPerSample + " bit", 8) +
       pad(i.numChannels === 2 ? "stereo" : i.numChannels + "ch", 9) +
@@ -137,7 +137,7 @@ function main() {
   }
 
   const failed = rows.filter((r) => !r.ok);
-  console.log("\n" + "=".repeat(78));
+  console.log("\n" + "=".repeat(84));
   console.log(`文件总数: ${rows.length}    通过: ${rows.length - failed.length}    失败: ${failed.length}`);
   console.log(`基底环境声 amb_*: ${ambCount} 个（要求 ≥1，且 >30s）`);
   console.log(`间断随机声 sfx_*: ${sfxCount} 个（要求 ≥3）`);
