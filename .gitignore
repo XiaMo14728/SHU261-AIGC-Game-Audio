@@ -18,3 +18,6 @@ desktop.ini
 *.flp
 *.als
 *.logicx
+
+# 含个人信息的打印版报告（本地生成，不入库）
+final/docs/*打印版*.html
