@@ -6,7 +6,7 @@
 					<Attenuation Name="ATT_Park_3D" ID="{2BBA97D0-45CF-44C6-AB4D-66A5C1B25620}" ShortID="873792640">
 						<CurveUsageInfoList>
 							<VolumeDryUsage>
-								<CurveUsageInfo Platform="Linked" CurveToUse="None">
+								<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
 									<Curve Name="VolumeDry" ID="{92D11C38-1A1A-4D2F-8CC2-1E643E19059F}">
 										<PropertyList>
 											<Property Name="Flags" Type="int32" Value="3"/>
