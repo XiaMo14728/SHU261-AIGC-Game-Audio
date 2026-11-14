@@ -2,6 +2,7 @@
 
 > 对应作业要求第 5–7 条：安装 Wwise、新建工程、导入资产并配置循环 / 随机 / 定位。
 
+> 🔴 **层级名称注意**：Wwise 2025.1 中，过去叫 **Actor-Mixer Hierarchy** 的层级，在 Project Explorer 里现在叫 **Containers（容器）**。工程文件的 `.wproj` 里也只声明了 `Containers`，没有 `Actor-Mixer Hierarchy`。本文出现的「Containers（该版本的容器层级）」即指此层级。
 > ⚠️ **关于界面路径**：本文按 Wwise 2025.1 的常规界面组织方式编写。Wwise 每个版本会有细微调整，**具体菜单位置请以官方教程为准**：
 > https://www.audiokinetic.com/zh/learning/learn-wwise/wwise-fundamentals
 > 本文的作用是告诉你"要设哪些参数、为什么这么设"，而不是替代官方教程。
@@ -81,13 +82,13 @@ $repo = "$env:USERPROFILE\Downloads\SHU261-AIGC-Game-Audio"
 ## 三、导入声音资产
 
 1. 确认 `final/tools/check-wav.js` 全绿（13 个文件都符合 48k/24bit/stereo）
-2. Wwise → `Project Explorer (工程浏览器)` → `Actor-Mixer Hierarchy` → `Default Work Unit`
+2. Wwise → `Project Explorer (工程浏览器)` → `Containers（该版本的容器层级）` → `Default Work Unit`
 3. 右键 → **Import Audio Files…**（或直接把 `final/assets/audio/` 里的文件拖进 Project Explorer）
 4. 导入对话框中：
    - 全选 13 个文件
-   - 目标容器选 `Actor-Mixer Hierarchy` → `Default Work Unit`
+   - 目标容器选 `Containers（该版本的容器层级）` → `Default Work Unit`
    - 导入方式选 **Sound SFX**
-5. 确认导入后，在 Actor-Mixer Hierarchy 里能看到 13 个 Sound SFX 对象
+5. 确认导入后，在 Containers（该版本的容器层级） 里能看到 13 个 Sound SFX 对象
 
 **整理建议**：右键 Default Work Unit → New Child → **Virtual Folder**，建两个文件夹：
 
@@ -128,7 +129,7 @@ Default Work Unit
 
 对 4 类各建一个 Random Container：
 
-1. `Actor-Mixer Hierarchy` → 右键 `SFX\Bird` → **New Child → Container → Random Container**
+1. `Containers（该版本的容器层级）` → 右键 `SFX\Bird` → **New Child → Container → Random Container**
 2. 命名为 `RC_BirdChirp`
 3. 把 3 个鸟鸣 Sound SFX **拖进**这个容器
 4. 选中容器，在 Property Editor 里设置：
@@ -187,7 +188,7 @@ SFX
 
 | 编号 | 截图内容 | 文件名 |
 | --- | --- | --- |
-| 1 | Actor-Mixer Hierarchy 完整层级 | `shot_01_hierarchy.png` |
+| 1 | Containers（该版本的容器层级） 完整层级 | `shot_01_hierarchy.png` |
 | 2 | 基底的 Loop 属性已勾选 | `shot_02_loop_property.png` |
 | 3 | Random Container 的容器设置 | `shot_03_random_container.png` |
 | 4 | Attenuation 曲线（含 Max Distance） | `shot_04_attenuation.png` |
